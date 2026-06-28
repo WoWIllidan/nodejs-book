@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
     // 获取执行上下文中的全局对象
     Local<Object> globalInstance = context->Global();
     // 给全局对象设置一个属性 A，值是上面创建的 A 对象
-    globalInstance->Set(context, String::NewFromUtf8Literal(isolate, "A", NewStringType::kNormal), A);
+    globalInstance->Set(context, String::NewFromUtf8Literal(isolate, "A", NewStringType::kNormal), A).Check();
     {
       // 在代码里访问刚才设置的 A 对象，改成其他字符串试试
       // 打开文件
